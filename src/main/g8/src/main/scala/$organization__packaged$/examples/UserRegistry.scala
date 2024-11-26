@@ -1,4 +1,4 @@
-package com.butterflyyy.examples
+package $organization$.examples
 
 //#user-registry-actor
 import akka.actor.typed.{ActorRef, Behavior}

@@ -1,4 +1,4 @@
-package com.butterflyyy.actors
+package $organization$.actors
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -13,7 +13,7 @@ import akka.actor.typed.Behavior
 import akka.actor.typed.scaladsl.Behaviors
 import akka.actor.typed.ActorRef
 
-import com.butterflyyy.models.*
+import $organization$.models.*
 
 object UserActors {
 

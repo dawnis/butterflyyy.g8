@@ -1,4 +1,4 @@
-package com.butterflyyy
+package $organization$
 
 import akka.actor.typed.{ActorRef, ActorSystem}
 import akka.actor.typed.scaladsl.AskPattern.*
@@ -7,8 +7,8 @@ import akka.http.scaladsl.server.Directives.*
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
 
-import com.butterflyyy.actors.*
-import com.butterflyyy.models.*
+import $organization$.actors.*
+import $organization$.models.*
 
 import scala.concurrent.Future
 

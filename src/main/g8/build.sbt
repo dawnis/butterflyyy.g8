@@ -14,7 +14,7 @@ fork := true
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-      organization    := "com.$organization$",
+      organization    := "$organization$",
       scalaVersion    := "$scala_version$"
     )),
     name := "butterflyy",

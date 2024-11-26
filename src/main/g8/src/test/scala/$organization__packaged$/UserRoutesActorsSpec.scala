@@ -1,7 +1,7 @@
-package com.butterflyyy
+package $organization$
 
-import com.butterflyyy.actors.*
-import com.butterflyyy.models.*
+import $organization$.actors.*
+import $organization$.models.*
 
 //#user-routes-spec
 //#test-top
