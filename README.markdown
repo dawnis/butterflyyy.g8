@@ -1,5 +1,9 @@
 A [Giter8][g8] template for Butterflyy a Scala based API backend using AkkaHTTP & Slick!
 
+To use, run `g8 dawnis/butterflyyy`
+
+See [foundweekends](https://www.foundweekends.org/giter8/) for Giter8 setup, usage and installation.
+
 Template license
 ----------------
 Written in 2024 by <AUTHOR NAME> Dawnis Chow <AUTHOR E-MAIL ADDRESS> dawnis.chow@gmail.com
