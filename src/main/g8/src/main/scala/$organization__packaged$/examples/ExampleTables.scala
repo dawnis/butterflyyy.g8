@@ -1,4 +1,4 @@
-package com.butterflyyy.examples
+package $organization$.examples
 
 import slick.jdbc.H2Profile.api.*
 import slick.lifted.{ForeignKeyQuery, ProvenShape}

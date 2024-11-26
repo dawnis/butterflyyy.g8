@@ -1,4 +1,4 @@
-package com.butterflyyy.models
+package $organization$.models
 
 import slick.jdbc.JdbcBackend.Database
 import com.typesafe.config.ConfigFactory

@@ -1,13 +1,13 @@
-package com.butterflyyy
-//import com.butterflyyy.examples.{User, Users}
-//import com.butterflyyy.examples.UserRegistry.ActionPerformed
+package $organization$
+//import $organization$.examples.{User, Users}
+//import $organization$.examples.UserRegistry.ActionPerformed
 
 //#json-formats
 import spray.json.RootJsonFormat
 import spray.json.DefaultJsonProtocol
 
-import com.butterflyyy.actors.*
-import com.butterflyyy.models.*
+import $organization$.actors.*
+import $organization$.models.*
 
 object JsonFormats  {
   // import the default encoders for primitive types (Int, String, Lists etc)

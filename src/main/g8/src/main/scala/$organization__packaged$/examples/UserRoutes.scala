@@ -1,4 +1,4 @@
-package com.butterflyyy.examples
+package $organization$.examples
 
 import akka.actor.typed.{ActorRef, ActorSystem}
 import akka.actor.typed.scaladsl.AskPattern.*

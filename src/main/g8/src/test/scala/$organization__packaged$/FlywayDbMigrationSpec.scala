@@ -1,7 +1,7 @@
-package com.butterflyyy
+package $organization$
 
-import com.butterflyyy.migrations.FlyyDb
-import com.butterflyyy.models.*
+import $organization$.migrations.FlyyDb
+import $organization$.models.*
 import org.scalatest.BeforeAndAfter
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec

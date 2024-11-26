@@ -1,4 +1,4 @@
-package com.butterflyyy
+package $organization$
 
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
@@ -15,8 +15,8 @@ import scala.concurrent.duration.Duration
 import slick.jdbc.H2Profile.api._
 
 
-import com.butterflyyy.models.*
-import com.butterflyyy.actors.*
+import $organization$.models.*
+import $organization$.actors.*
 
 //#main-class
 object butterflyyyApp {

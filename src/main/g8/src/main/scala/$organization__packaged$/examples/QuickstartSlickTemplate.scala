@@ -1,4 +1,4 @@
-package com.butterflyyy.examples
+package $organization$.examples
 
 // Hello Slick Tutorial Setup
 import scala.concurrent.duration.Duration

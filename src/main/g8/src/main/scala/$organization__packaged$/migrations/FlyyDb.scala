@@ -1,6 +1,6 @@
-package com.butterflyyy.migrations
+package $organization$.migrations
 
-import com.butterflyyy.models.DatabaseConnection
+import $organization$.models.DatabaseConnection
 import com.typesafe.config.ConfigFactory
 import org.flywaydb.core.Flyway
 

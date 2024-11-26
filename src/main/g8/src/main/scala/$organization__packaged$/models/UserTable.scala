@@ -1,4 +1,4 @@
-package com.butterflyyy.models
+package $organization$.models
 
 import slick.lifted.ProvenShape
 import scala.collection.immutable
