@@ -19,7 +19,7 @@ import $organization$.models.*
 import $organization$.actors.*
 
 //#main-class
-object butterflyyyApp {
+object ButterflyyApp {
   //#start-http-server
   private def startHttpServer(routes: Route)(implicit system: ActorSystem[_]): Unit = {
     // Akka HTTP still needs a classic ActorSystem to start
