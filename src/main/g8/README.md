@@ -1,5 +1,4 @@
-# butterflyy
-Reusable Code Base for a Scala API &amp; Server
+# $name$
 
 ## IDE Setup Notes
 
