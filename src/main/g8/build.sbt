@@ -17,7 +17,7 @@ lazy val root = (project in file(".")).
       organization    := "$organization$",
       scalaVersion    := "$scala_version$"
     )),
-    name := "butterflyy",
+    name := "$name$",
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-http"                % akkaHttpVersion,
       "com.typesafe.akka" %% "akka-http-spray-json"     % akkaHttpVersion,
