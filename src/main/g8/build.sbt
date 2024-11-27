@@ -52,5 +52,5 @@ lazy val runMigration = taskKey[Unit]("Run migrations")
 
 runMigration := {
   println("Running migrations...")
-  (runMain in Compile).toTask("$organization$.FlywayMigration").value
+  (runMain in Compile).toTask(" $organization$.FlywayMigration").value
 }
