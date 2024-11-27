@@ -4,6 +4,7 @@ lazy val akkaVersion    = "2.9.7"
 resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 
 javacOptions ++= Seq("--release", "21")
+javaHome := Some(file("/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"))
 
 // Run in a separate JVM, to make sure sbt waits until all threads have
 // finished before returning.
@@ -32,8 +33,8 @@ lazy val root = (project in file(".")).
 
       "com.typesafe.slick" %% "slick" % "3.5.0-RC1",
       "com.typesafe.slick" %% "slick-hikaricp" % "3.5.0-RC1",
-      "org.flywaydb" % "flyway-core" % "10.21.0",
-      "org.flywaydb" % "flyway-database-postgresql" % "10.21.0" % "runtime",
+      "org.flywaydb" % "flyway-core" % "11.0.0",
+      "org.flywaydb" % "flyway-database-postgresql" % "11.0.0" % "runtime",
 
       "org.postgresql" % "postgresql" % "42.7.4",
 
@@ -46,4 +47,10 @@ lazy val root = (project in file(".")).
 
 
   )
-// https://mvnrepository.com/artifact/org.flywaydb/flyway-database-postgresql
+
+lazy val runMigration = taskKey[Unit]("Run migrations")
+
+runMigration := {
+  println("Running migrations...")
+  (runMain in Compile).toTask("$organization$.FlywayMigration").value
+}
