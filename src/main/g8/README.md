@@ -21,6 +21,8 @@ It's possible to configure the Language Server Protocol using the package `Metal
 ## Flyway
 Flyway is used to create a series of SQL scripts for database migrations. See this [blog post](https://blog.nashtechglobal.com/how-to-use-flyway-with-scala-application/) for details. 
 
+A SBT task is configured to run the migration. To trigger this run `sbt runMigration` from the commandline. Note the requirement for Java >= 17 due to Flyway. 
+
 ## How this was built
 
 We used `sbt new akka/akka-http-quickstart-scala.g8` to build using Akka's conveniently provided quick start. See [Akka's documentation](https://doc.akka.io/docs/akka-http/current/index.html) for details
