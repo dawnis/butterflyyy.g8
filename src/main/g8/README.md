@@ -21,7 +21,7 @@ It's possible to configure the Language Server Protocol using the package `Metal
 ## Flyway
 Flyway is used to create a series of SQL scripts for database migrations. See this [blog post](https://blog.nashtechglobal.com/how-to-use-flyway-with-scala-application/) for details. 
 
-A SBT task is configured to run the migration. To trigger this run `sbt runMigration` from the commandline. Note the requirement for Java >= 17 due to Flyway. 
+A SBT task is configured to run the migration. To trigger this run `sbt runMigration` from the commandline. Note the requirement for Java >= 17 due to Flyway. To run from IntelliJ, remove the `runtime` requirement from `flyway-postgres`
 
 ## How this was built
 
