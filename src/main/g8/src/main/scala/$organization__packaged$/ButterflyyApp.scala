@@ -40,7 +40,7 @@ object ButterflyyApp {
   def main(args: Array[String]): Unit = {
     //#server-bootstrapping
     val rootBehavior = Behaviors.setup[Nothing] { context =>
-      val userRegistryActor = context.spawn(UserActors(), "UserRegistryActor")
+      val userRegistryActor = context.spawn(UserActors("h2mem1"), "UserRegistryActor")
       context.watch(userRegistryActor)
 
       val routes = new UserActorRoutes(userRegistryActor)(context.system)
