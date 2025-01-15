@@ -16,7 +16,6 @@ import akka.actor.typed.ActorRef
 import $organization$.models.*
 
 object UserActors {
-
   sealed trait Command
   final case class GetAllUsers(replyTo: ActorRef[UserActorSeq]) extends Command
   final case class GetUser(name: String, replyTo: ActorRef[GetUserResponse]) extends Command
@@ -26,50 +25,54 @@ object UserActors {
   final case class GetUserResponse(maybeUser: Option[UserActor])
   final case class ActionPerformed(description: String)
 
-  def apply(): Behavior[Command] = tb_request
+  def apply(dbConnectionType: String): Behavior[Command] = {
+        val db: Database = Database.forConfig(dbConnectionType)
+        new UserActors(db).tb_request
+  }
+}
 
-  val db: Database = Database.forConfig("h2mem1")
+class UserActors(dbConnection: Database) {
 
   private val table = TableQuery[UserTable]
-  private def getAllUsers(): Future[Seq[UserActor]] = db.run(table.result)
+  private def getAllUsers(): Future[Seq[UserActor]] = dbConnection.run(table.result)
   private def getUser(name: String): Future[UserActor] = {
     val userQuery = table.filter(_.name === name)
-    db.run (
+    dbConnection.run (
       userQuery.result.head
     )
   }
-  private def createUser(user: UserActor) = db.run(
+  private def createUser(user: UserActor) = dbConnection.run(
     table += user
   )
   private def deleteUser(name: String) = {
     val deleteQuery = table.filter(_.name === name)
-    db.run (
+    dbConnection.run (
       deleteQuery.delete
     )
   }
 
 
   // Actor message handling
-  private def tb_request: Behavior[Command] = Behaviors.receiveMessage {
-    case GetAllUsers(replyTo) =>
+  private def tb_request: Behavior[UserActors.Command] = Behaviors.receiveMessage {
+    case UserActors.GetAllUsers(replyTo) =>
       getAllUsers().onComplete {
         case Success(u) => replyTo ! UserActorSeq(u)
         case Failure(e) =>  e.printStackTrace()
       }
       Behaviors.same
-    case GetUser(name,replyTo) =>
+    case UserActors.GetUser(name,replyTo) =>
       getUser(name).onComplete {
-        case Success(u) => replyTo ! GetUserResponse(Some(u))
-        case Failure(e) =>  replyTo ! GetUserResponse(None)
+        case Success(u) => replyTo ! UserActors.GetUserResponse(Some(u))
+        case Failure(e) =>  replyTo ! UserActors.GetUserResponse(None)
 
       }
       Behaviors.same
-    case CreateUser(user, replyTo) =>
-      replyTo ! ActionPerformed(s"User \${user.name} created.")
+    case UserActors.CreateUser(user, replyTo) =>
+      replyTo ! UserActors.ActionPerformed(s"User \${user.name} created.")
       createUser(user)
       Behaviors.same
-    case DeleteUser(name, replyTo) =>
-      replyTo ! ActionPerformed(s"User \$name deleted.")
+    case UserActors.DeleteUser(name, replyTo) =>
+      replyTo ! UserActors.ActionPerformed(s"User \$name deleted.")
       deleteUser(name)
       Behaviors.same
   }
