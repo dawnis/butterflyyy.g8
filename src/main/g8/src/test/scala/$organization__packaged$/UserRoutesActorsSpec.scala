@@ -37,7 +37,7 @@ class UserRoutesActorsSpec extends AnyWordSpec with Matchers with ScalaFutures w
   // We use the real UserRegistryActor to test it while we hit the Routes,
   // but we could "mock" it by implementing it in-place or by using a TestProbe
   // created with testKit.createTestProbe()
-  val userRegistry = testKit.spawn(UserActors())
+  val userRegistry = testKit.spawn(UserActors("h2mem1"))
   lazy val routes = new UserActorRoutes(userRegistry).userRoutes
 
   // use the json formats to marshal and unmarshall objects in the test
